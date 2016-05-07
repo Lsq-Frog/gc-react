@@ -1,29 +1,24 @@
 /**
  * Created by lai on 2016/3/31.
  */
-/**
- * Created by lai on 3/30/16.
- */
 
-import path from 'path';
-import Plugins from  './config/plugins.babel'
+import path from 'path'//node 原生path模块
+import Plugins from  './config/plugins.babel' //plugins 配置
+import GetEntry from './config/entry'//entry
 
-let debug = '';
+let debug = false;
 
 export default {
-    entry: {
-        header: './src/js/components/header/entry.js',
-        hello: './src/js/components/hello/entry.js',
-        react: ['react'],
-        jquery: ['jquery']
-    },
+    entry: GetEntry,
     output: {
-        path: path.resolve(debug ? '__build' : './assets/'),
-        publicPath: debug ? '/__build/' : '',
+        path: path.resolve(debug ? './build/' : './dist/'),
+        publicPath: debug ? '' : '',
         filename: debug ? 'js/[name].js' : 'js/[chunkhash:8].[name].min.js'
     },
     resolve: {
-        extensions: ['', '.js', '.jsx']
+        alias: {},//定义别名
+        extensions: ['', '.js', '.jsx'],//配置项,设置忽略js后缀
+        root: './src'
     },
     module: {
         loaders: [
@@ -32,7 +27,7 @@ export default {
                 loaders: [
                     'image?{bypassOnDebug: true, progressive:true, \
                         optimizationLevel: 3, pngquant:{quality: "65-80"}}',
-                    'url?limit=10000&name=img/[hash:8].[name].[ext]',
+                    'url?limit=10000&name=img/[hash:8].[name].[ext]'
                 ]
             },
             {

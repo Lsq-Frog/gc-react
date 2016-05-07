@@ -11,6 +11,7 @@ var ChunkPlugins = [
     new webpack.optimize.CommonsChunkPlugin({
         name: ['jquery', 'react'],
         minChunks: Infinity
-})];
+    }, new webpack.HotModuleReplacementPlugin()
+)];
 
 export default ChunkPlugins
