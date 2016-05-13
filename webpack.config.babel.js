@@ -6,7 +6,7 @@ import path from 'path'//node 原生path模块
 import Plugins from  './config/plugins.babel' //plugins 配置
 import GetEntry from './config/entry'//entry
 
-let debug = false;
+let debug = true;
 
 export default {
     entry: GetEntry,

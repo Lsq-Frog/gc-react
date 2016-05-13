@@ -17,13 +17,25 @@ let HtmlPlugins = [
             return aI&&bI? bI -aI : -1;
         }
     }),
+    //new HtmlWebpackPlugin({
+    //    filename: 'header.html',
+    //    template: './src/header/header.html',
+    //    inject: true,
+    //    chunks: ['header', 'react', 'jquery'],
+    //    chunksSortMode: function (a, b) {
+    //        var index = {'header': 1, 'jquery': 2, 'react': 3},
+    //            aI = index[a.origins[0].name],
+    //            bI = index[b.origins[0].name];
+    //        return aI&&bI? bI -aI : -1;
+    //    }
+    //})
     new HtmlWebpackPlugin({
-        filename: 'header.html',
-        template: './src/header/header.html',
+        filename: 'weekly.html',
+        template: './src/weekly/weekly.html',
         inject: true,
-        chunks: ['header', 'react', 'jquery'],
+        chunks: ['weekly'],
         chunksSortMode: function (a, b) {
-            var index = {'header': 1, 'jquery': 2, 'react': 3},
+            var index = {'weekly': 1},
                 aI = index[a.origins[0].name],
                 bI = index[b.origins[0].name];
             return aI&&bI? bI -aI : -1;

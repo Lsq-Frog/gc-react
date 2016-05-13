@@ -98,11 +98,17 @@ var HelloS = React.createClass({
 });
 
 let Hello = React.createClass({
+    getInitialState: function(){
+        //确定初始状态
+        return {
+            clicked: false
+        };
+    },
     getInfo: function(){
         console.log(this.refs);
         console.log(this.refs.ssssm.getDOMNode(), this.refs.sssn.getDOMNode());
         this.refs.ssssm.getDOMNode().name = 'sdfsd';
-        this.refs.sssn.getDOMNode().style.height = '100px';
+        this.refs.sssn.getDOMNode().style.height = this.state.clicked? (()=>{this.setState({clicked: false});return '100px'})():(()=>{this.setState({clicked: true});return '1040px'})();
     },
     render(){
         return (
