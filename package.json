@@ -17,7 +17,7 @@
     "fs": "0.0.2",
     "glob": "^7.0.3",
     "html-webpack-plugin": "^2.15.0",
-    "jquery": "^2.2.2",
+    "jquery": "^3.0.0",
     "less": "^2.6.1",
     "less-loader": "^2.2.3",
     "path": "^0.12.7",
